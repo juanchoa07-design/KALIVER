@@ -4,6 +4,7 @@ import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import TensionSection from "@/components/TensionSection";
 import PillarsSection from "@/components/PillarsSection";
+import RotatingWord from "@/components/RotatingWord";
 
 const MARQUEE_ITEMS = [
   "100% CARNE",
@@ -32,7 +33,7 @@ export default function Home() {
             Sin azúcares · 100% carne
           </span>
           <h1 className="mt-6 max-w-3xl font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-7xl">
-            Proteína real,
+            Proteína <RotatingWord />,
             <br />
             sin excusas.
           </h1>

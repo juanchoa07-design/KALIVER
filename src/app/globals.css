@@ -97,3 +97,13 @@ h1, h2, h3, h4, .font-display {
 .animate-marquee {
   animation: marquee 22s linear infinite;
 }
+
+@keyframes word-cycle {
+  0% { opacity: 0; transform: translateY(0.3em); }
+  12% { opacity: 1; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-0.3em); }
+}
+.animate-word-cycle {
+  animation: word-cycle 2.2s ease-in-out;
+}
