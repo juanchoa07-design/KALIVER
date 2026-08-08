@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40" />
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-24 text-center sm:px-6 lg:py-32">
-          <span className="rounded-full border border-gold/40 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-gold">
+          <span className="rounded-full border border-bronze/40 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-bronze">
             Sin azúcares · 100% carne
           </span>
           <h1 className="mt-6 max-w-3xl font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-7xl">
@@ -64,7 +64,7 @@ export default function Home() {
               key={i}
               className="font-display text-sm font-bold uppercase tracking-widest text-cream-light"
             >
-              {item} <span className="text-gold">&nbsp;•&nbsp;</span>
+              {item} <span className="text-bronze">&nbsp;•&nbsp;</span>
             </span>
           ))}
         </div>
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Story */}
-      <section className="bg-navy text-cream-light">
+      <section className="bg-carbon text-cream-light">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <Image
@@ -107,7 +107,7 @@ export default function Home() {
             />
           </div>
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-gold">
+            <p className="text-xs font-bold uppercase tracking-widest text-bronze">
               ¿Qué es el charqui?
             </p>
             <h2 className="mt-2 font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">
@@ -127,7 +127,7 @@ export default function Home() {
                 "Deshidratamos lentamente para mejorar la textura y conservar su sabor.",
               ].map((step, i) => (
                 <li key={i} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold font-display font-bold text-ink">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-bronze font-display font-bold text-ink">
                     {i + 1}
                   </span>
                   <p className="pt-1 text-sm text-cream-light/80">{step}</p>
@@ -191,8 +191,14 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-maroon">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-maroon">
+        <Image
+          src="/images/texture-3.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-15 mix-blend-luminosity"
+        />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl font-black uppercase tracking-tight text-cream-light sm:text-4xl">
             Tu próximo snack te espera
           </h2>

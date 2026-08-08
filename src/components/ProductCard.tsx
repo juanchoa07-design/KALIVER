@@ -19,7 +19,7 @@ export default function ProductCard({ product }: { product: Product }) {
           className="object-cover transition duration-500 group-hover:scale-105"
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw"
         />
-        <div className="absolute left-3 top-3 rounded-full bg-navy px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-cream-light">
+        <div className="absolute left-3 top-3 rounded-full bg-carbon px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-cream-light">
           30g proteína
         </div>
       </Link>

@@ -18,7 +18,7 @@ export default function AddBundleButton() {
           image: bundle.image,
         })
       }
-      className="mt-6 rounded-full bg-gold px-8 py-3 text-sm font-bold uppercase tracking-wide text-ink transition hover:bg-white"
+      className="mt-6 rounded-full bg-bronze px-8 py-3 text-sm font-bold uppercase tracking-wide text-ink transition hover:bg-white"
     >
       Agregar pack al carrito
     </button>

@@ -52,7 +52,7 @@ export default function ProductDetail({ product }: { product: Product }) {
           {product.badges.map((badge) => (
             <span
               key={badge}
-              className="rounded-full bg-navy px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cream-light"
+              className="rounded-full bg-carbon px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cream-light"
             >
               {badge}
             </span>

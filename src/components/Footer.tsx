@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
               <Image
-                src="/images/logo-mark-transparent.png"
+                src="/images/logo-mark-cream.png"
                 alt="Kaliver"
                 width={32}
                 height={32}
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-gold">
+            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-bronze">
               Tienda
             </h3>
             <ul className="mt-4 space-y-2 text-sm text-cream-light/80">
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-gold">
+            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-bronze">
               Contacto
             </h3>
             <ul className="mt-4 space-y-2 text-sm text-cream-light/80">

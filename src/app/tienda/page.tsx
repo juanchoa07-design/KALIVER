@@ -32,7 +32,7 @@ export default function ShopPage() {
         ))}
       </div>
 
-      <div id="pack-degustacion" className="mt-16 scroll-mt-24 rounded-3xl bg-navy p-8 text-cream-light sm:p-12">
+      <div id="pack-degustacion" className="mt-16 scroll-mt-24 rounded-3xl bg-carbon p-8 text-cream-light sm:p-12">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-video overflow-hidden rounded-2xl bg-white/5 lg:aspect-square">
             <Image
@@ -43,7 +43,7 @@ export default function ShopPage() {
             />
           </div>
           <div>
-            <span className="rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
+            <span className="rounded-full bg-bronze px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
               Ahorrá probando los 3
             </span>
             <h2 className="mt-4 font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">

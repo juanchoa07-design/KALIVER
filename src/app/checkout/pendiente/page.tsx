@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function CheckoutPendingPage() {
   return (
     <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-4 py-24 text-center">
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold text-ink">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-bronze text-ink">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10" />
           <path d="M12 6v6l4 2" />

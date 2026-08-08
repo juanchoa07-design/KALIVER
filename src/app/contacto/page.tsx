@@ -27,7 +27,7 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white p-5 transition hover:border-maroon"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-cream-light">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-carbon text-cream-light">
               📱
             </span>
             <div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white p-5 transition hover:border-maroon"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-cream-light">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-carbon text-cream-light">
               📷
             </span>
             <div>

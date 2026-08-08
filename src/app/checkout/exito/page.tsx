@@ -9,7 +9,7 @@ export default async function CheckoutSuccessPage({
 
   return (
     <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-4 py-24 text-center">
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-navy text-cream-light">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-carbon text-cream-light">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M20 6 9 17l-5-5" />
         </svg>
@@ -27,7 +27,7 @@ export default async function CheckoutSuccessPage({
         </p>
       )}
       {demo === "1" && (
-        <p className="max-w-md rounded-xl bg-gold/20 px-4 py-3 text-sm text-ink/70">
+        <p className="max-w-md rounded-xl bg-bronze/20 px-4 py-3 text-sm text-ink/70">
           Este pedido se procesó en modo de demostración porque todavía no se
           configuraron las credenciales de Mercado Pago.
         </p>

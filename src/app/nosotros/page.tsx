@@ -12,7 +12,7 @@ export default function AboutPage() {
     <div>
       <section className="relative overflow-hidden bg-ink text-cream-light">
         <div className="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-widest text-gold">
+          <p className="text-xs font-bold uppercase tracking-widest text-bronze">
             Nuestra historia
           </p>
           <h1 className="mt-3 font-display text-4xl font-black uppercase tracking-tight sm:text-5xl">

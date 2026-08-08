@@ -1,19 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf6ee;
-  --foreground: #1a1410;
+  /* Paleta oficial del manual de marca Kaliver:
+     bordó opaco + beige hueso, sampleados de los fondos temáticos provistos.
+     negro carbón y tonos tierra/bronce como acentos. Sin azules: el manual
+     no contempla color frío en la paleta. */
+  --background: #fcefdb;
+  --foreground: #1c1611;
 
-  --color-cream: #f3ead4;
-  --color-cream-light: #faf6ee;
-  --color-maroon: #7a1f24;
-  --color-maroon-dark: #5c1519;
-  --color-red: #9c2b34;
-  --color-navy: #1c2c4c;
-  --color-navy-dark: #121d33;
-  --color-ink: #171310;
-  --color-charcoal: #201a16;
-  --color-gold: #c9a24b;
+  --color-cream: #f8d8b0;
+  --color-cream-light: #fcefdb;
+  --color-maroon: #781010;
+  --color-maroon-dark: #500b0b;
+  --color-red: #8f1414;
+  --color-carbon: #17120f;
+  --color-carbon-light: #241d17;
+  --color-earth: #6b4a32;
+  --color-bronze: #93703f;
+  --color-bronze-dark: #6e5230;
+
+  /* aliases kept for readability across components */
+  --color-ink: var(--color-carbon);
 }
 
 @theme inline {
@@ -25,11 +32,12 @@
   --color-maroon: var(--color-maroon);
   --color-maroon-dark: var(--color-maroon-dark);
   --color-red: var(--color-red);
-  --color-navy: var(--color-navy);
-  --color-navy-dark: var(--color-navy-dark);
+  --color-carbon: var(--color-carbon);
+  --color-carbon-light: var(--color-carbon-light);
+  --color-earth: var(--color-earth);
+  --color-bronze: var(--color-bronze);
+  --color-bronze-dark: var(--color-bronze-dark);
   --color-ink: var(--color-ink);
-  --color-charcoal: var(--color-charcoal);
-  --color-gold: var(--color-gold);
 
   --font-display: var(--font-display);
   --font-text: var(--font-text);
