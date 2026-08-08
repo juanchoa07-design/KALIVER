@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
+import TensionSection from "@/components/TensionSection";
+import PillarsSection from "@/components/PillarsSection";
 
 const MARQUEE_ITEMS = [
   "100% CARNE",
@@ -70,6 +72,8 @@ export default function Home() {
         </div>
       </div>
 
+      <TensionSection />
+
       {/* Products */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
@@ -137,6 +141,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PillarsSection />
 
       {/* Nutrition */}
       <section id="nutricion" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

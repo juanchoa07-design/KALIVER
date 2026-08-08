@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+/*
+ * The Comrade Bold file has real glyphs for accented capitals (Á É Í Ó Ú Ñ)
+ * but they're drawn as lowercase-style marks, not matching the rest of the
+ * uppercase set — a font-design bug, not a missing-glyph fallback issue.
+ * Since the glyphs exist, the browser won't auto-substitute, so we force it:
+ * Comrade covers everything except the Latin-1 accented block, and a second
+ * face under the same family name covers just that block with a system font
+ * whose accented capitals are drawn correctly.
+ */
+@font-face {
+  font-family: "Comrade";
+  src: url("/fonts/Comrade-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00BF, U+2000-206F, U+2190-21FF;
+}
+@font-face {
+  font-family: "Comrade";
+  src: local("Arial Black"), local("Arial-Black"), local("Arial Bold"), local("Arial");
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+00C0-00FF, U+0100-017F;
+}
+
 :root {
   /* Paleta oficial del manual de marca Kaliver:
      bordó opaco + beige hueso, sampleados de los fondos temáticos provistos.
@@ -39,7 +64,7 @@
   --color-bronze-dark: var(--color-bronze-dark);
   --color-ink: var(--color-ink);
 
-  --font-display: var(--font-display);
+  --font-display: "Comrade", Arial, Helvetica, sans-serif;
   --font-text: var(--font-text);
 }
 

@@ -1,12 +1,7 @@
 import localFont from "next/font/local";
 
-export const displayFont = localFont({
-  src: [
-    { path: "../../public/fonts/Comrade-Bold.ttf", weight: "700", style: "normal" },
-  ],
-  variable: "--font-display",
-  display: "swap",
-});
+// Display font ("Comrade") is declared manually in globals.css via @font-face
+// with a unicode-range split — see the comment there for why.
 
 export const nhgText = localFont({
   src: [

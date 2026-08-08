@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { displayFont, nhgText } from "@/lib/fonts";
+import { nhgText } from "@/lib/fonts";
 import { CartProvider } from "@/lib/cart-context";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es-UY"
-      className={`${displayFont.variable} ${nhgText.variable} h-full antialiased`}
+      className={`${nhgText.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream-light text-ink">
         <CartProvider>
