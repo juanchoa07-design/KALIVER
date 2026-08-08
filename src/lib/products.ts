@@ -30,7 +30,7 @@ export const products: Product[] = [
     slug: "charqui-vacuno-con-sal",
     name: "Charqui Kaliver",
     flavor: "Vacuno con Sal",
-    tagline: "El clásico. Carne y sal, nada más.",
+    tagline: "Carne. Sal. Nada complicado.",
     description:
       "Corte magro de vacuno, marinado y deshidratado lentamente para concentrar sabor y proteína. Sin azúcares agregados, sin conservantes raros. Solo carne de verdad.",
     price: 890,

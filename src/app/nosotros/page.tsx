@@ -51,6 +51,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden bg-carbon text-cream-light">
+        <Image
+          src="/images/texture-1.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-[0.06]"
+        />
+        <div className="relative mx-auto max-w-3xl px-4 py-24 sm:px-6">
+          <p className="text-xs font-bold uppercase tracking-widest text-bronze">
+            Manifiesto
+          </p>
+          <div className="mt-6 space-y-5 font-display text-2xl uppercase leading-tight tracking-tight sm:text-3xl">
+            <p>
+              Durante miles de años aprendimos a alimentarnos con lo que
+              teníamos alrededor. Carne. Sal. Fuego. Tiempo.
+            </p>
+            <p className="text-cream-light/60">
+              Después cambió nuestra forma de vivir. Nos movemos más rápido.
+              Trabajamos lejos de casa. Entrenamos. Viajamos.
+            </p>
+            <p>
+              Eso no significa que todo lo anterior haya dejado de tener
+              valor.
+            </p>
+            <p className="text-cream-light/60">
+              Avanzar no siempre significa empezar de cero. A veces significa
+              tomar algo que funcionó durante generaciones y encontrar una
+              manera mejor de llevarlo con nosotros.
+            </p>
+          </div>
+          <p className="mt-10 font-display text-4xl uppercase tracking-tight text-bronze sm:text-5xl">
+            Kaliver.
+          </p>
+          <p className="mt-1 font-display text-xl uppercase tracking-tight sm:text-2xl">
+            Lo ancestral, adaptado.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <h2 className="text-center font-display text-3xl font-black uppercase tracking-tight text-ink">
