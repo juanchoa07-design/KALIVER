@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 
 const ANCESTRAL = ["Carne", "Fuego", "Tierra", "Fuerza", "Tradición", "Supervivencia"];
 const MODERNO = ["Practicidad", "Diseño", "Rendimiento", "Tecnología", "Portabilidad", "Conveniencia"];
@@ -74,7 +75,7 @@ export default function TensionSection() {
         ×
       </div>
 
-      <div className="border-t border-black/10 bg-cream-light px-4 py-10 text-center sm:px-6 sm:py-14">
+      <Reveal className="border-t border-black/10 bg-cream-light px-4 py-10 text-center sm:px-6 sm:py-14">
         <p className="mx-auto max-w-2xl font-display text-lg uppercase leading-snug tracking-tight text-ink sm:text-2xl">
           &ldquo;Kaliver no pertenece completamente a ninguno de los dos mundos.
           Su identidad aparece precisamente al combinarlos.&rdquo;
@@ -82,7 +83,7 @@ export default function TensionSection() {
         <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-maroon">
           Alimentos ancestrales · Formatos modernos
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import TensionSection from "@/components/TensionSection";
 import PillarsSection from "@/components/PillarsSection";
 import RotatingWord from "@/components/RotatingWord";
+import Reveal from "@/components/Reveal";
 
 const MARQUEE_ITEMS = [
   "100% CARNE",
@@ -77,7 +78,7 @@ export default function Home() {
 
       {/* Products */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <Reveal className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-maroon">
               Nuestros sabores
@@ -92,10 +93,12 @@ export default function Home() {
           >
             Ver toda la tienda →
           </Link>
-        </div>
+        </Reveal>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard key={product.slug} product={product} />
+          {products.map((product, i) => (
+            <Reveal key={product.slug} delay={i * 100}>
+              <ProductCard product={product} />
+            </Reveal>
           ))}
         </div>
       </section>
@@ -103,15 +106,16 @@ export default function Home() {
       {/* Story */}
       <section className="bg-carbon text-cream-light">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+          <Reveal className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <Image
               src="/images/product-back-label.jpg"
               alt="Charqui Kaliver"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={150}>
             <p className="text-xs font-bold uppercase tracking-widest text-bronze">
               ¿Qué es el charqui?
             </p>
@@ -139,7 +143,7 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -148,7 +152,7 @@ export default function Home() {
       {/* Nutrition */}
       <section id="nutricion" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
+          <Reveal>
             <p className="text-xs font-bold uppercase tracking-widest text-maroon">
               Información nutricional
             </p>
@@ -185,15 +189,16 @@ export default function Home() {
               Porción de 50g (1 envase). Ingredientes: carne vacuna, miel, sal,
               vinagre de manzana, jugo de limón y especias.
             </p>
-          </div>
-          <div className="relative aspect-square overflow-hidden rounded-3xl bg-cream">
+          </Reveal>
+          <Reveal delay={150} className="relative aspect-square overflow-hidden rounded-3xl bg-cream">
             <Image
               src="/images/product-romero.jpg"
               alt="Charqui Kaliver con romero"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -205,7 +210,7 @@ export default function Home() {
           fill
           className="object-cover opacity-15 mix-blend-luminosity"
         />
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:px-8">
+        <Reveal className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl font-black uppercase tracking-tight text-cream-light sm:text-4xl">
             Tu próximo snack te espera
           </h2>
@@ -219,7 +224,7 @@ export default function Home() {
           >
             Ir a la tienda
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

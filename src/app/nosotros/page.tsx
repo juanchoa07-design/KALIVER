@@ -1,17 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Nosotros | Kaliver",
   description: "La historia detrás de Kaliver, charqui de vacuno uruguayo.",
 };
 
+const MANIFESTO = [
+  "Durante miles de años aprendimos a alimentarnos con lo que teníamos alrededor. Carne. Sal. Fuego. Tiempo.",
+  "Después cambió nuestra forma de vivir. Nos movemos más rápido. Trabajamos lejos de casa. Entrenamos. Viajamos.",
+  "Eso no significa que todo lo anterior haya dejado de tener valor.",
+  "Avanzar no siempre significa empezar de cero. A veces significa tomar algo que funcionó durante generaciones y encontrar una manera mejor de llevarlo con nosotros.",
+];
+
+const NON_NEGOTIABLES = [
+  {
+    title: "100% carne",
+    text: "Sin rellenos de soja ni proteínas aisladas. El ingrediente principal siempre es carne de vacuno.",
+  },
+  {
+    title: "Sin azúcares agregados",
+    text: "Marinados con especias, hierbas y vinagre de manzana. Nada de jarabes ni azúcares escondidos.",
+  },
+  {
+    title: "Producción cuidada",
+    text: "Cortes magros seleccionados, marinado propio y deshidratado lento para cuidar textura y sabor.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <div>
       <section className="relative overflow-hidden bg-ink text-cream-light">
-        <div className="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6">
+        <Reveal className="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6">
           <p className="text-xs font-bold uppercase tracking-widest text-bronze">
             Nuestra historia
           </p>
@@ -25,14 +48,20 @@ export default function AboutPage() {
             recetas propias y deshidratados con paciencia hasta lograr el
             charqui que nos gustaría encontrar en cualquier góndola.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-          <Image src="/images/product-chimichurri.jpg" alt="Charqui Kaliver" fill className="object-cover" />
-        </div>
-        <div>
+        <Reveal className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+          <Image
+            src="/images/product-chimichurri.jpg"
+            alt="Charqui Kaliver"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </Reveal>
+        <Reveal delay={150}>
           <h2 className="font-display text-3xl font-black uppercase tracking-tight text-ink">
             Por qué charqui
           </h2>
@@ -48,7 +77,7 @@ export default function AboutPage() {
             porciones individuales de 50g, con 30g de proteína cada una, y tres
             marinados pensados para distintos momentos del día.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="relative overflow-hidden bg-carbon text-cream-light">
@@ -59,69 +88,50 @@ export default function AboutPage() {
           className="object-cover opacity-[0.06]"
         />
         <div className="relative mx-auto max-w-3xl px-4 py-24 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-widest text-bronze">
-            Manifiesto
-          </p>
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-widest text-bronze">
+              Manifiesto
+            </p>
+          </Reveal>
           <div className="mt-6 space-y-5 font-display text-2xl uppercase leading-tight tracking-tight sm:text-3xl">
-            <p>
-              Durante miles de años aprendimos a alimentarnos con lo que
-              teníamos alrededor. Carne. Sal. Fuego. Tiempo.
-            </p>
-            <p className="text-cream-light/60">
-              Después cambió nuestra forma de vivir. Nos movemos más rápido.
-              Trabajamos lejos de casa. Entrenamos. Viajamos.
-            </p>
-            <p>
-              Eso no significa que todo lo anterior haya dejado de tener
-              valor.
-            </p>
-            <p className="text-cream-light/60">
-              Avanzar no siempre significa empezar de cero. A veces significa
-              tomar algo que funcionó durante generaciones y encontrar una
-              manera mejor de llevarlo con nosotros.
-            </p>
+            {MANIFESTO.map((line, i) => (
+              <Reveal key={line} delay={i * 120} className={i % 2 === 1 ? "text-cream-light/60" : ""}>
+                <p>{line}</p>
+              </Reveal>
+            ))}
           </div>
-          <p className="mt-10 font-display text-4xl uppercase tracking-tight text-bronze sm:text-5xl">
-            Kaliver.
-          </p>
-          <p className="mt-1 font-display text-xl uppercase tracking-tight sm:text-2xl">
-            Lo ancestral, adaptado.
-          </p>
+          <Reveal delay={MANIFESTO.length * 120}>
+            <p className="mt-10 font-display text-4xl uppercase tracking-tight text-bronze sm:text-5xl">
+              Kaliver.
+            </p>
+            <p className="mt-1 font-display text-xl uppercase tracking-tight sm:text-2xl">
+              Lo ancestral, adaptado.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-cream">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <h2 className="text-center font-display text-3xl font-black uppercase tracking-tight text-ink">
-            Lo que no negociamos
-          </h2>
+          <Reveal>
+            <h2 className="text-center font-display text-3xl font-black uppercase tracking-tight text-ink">
+              Lo que no negociamos
+            </h2>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {[
-              {
-                title: "100% carne",
-                text: "Sin rellenos de soja ni proteínas aisladas. El ingrediente principal siempre es carne de vacuno.",
-              },
-              {
-                title: "Sin azúcares agregados",
-                text: "Marinados con especias, hierbas y vinagre de manzana. Nada de jarabes ni azúcares escondidos.",
-              },
-              {
-                title: "Producción cuidada",
-                text: "Cortes magros seleccionados, marinado propio y deshidratado lento para cuidar textura y sabor.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white p-6 shadow-sm">
+            {NON_NEGOTIABLES.map((item, i) => (
+              <Reveal key={item.title} delay={i * 100} className="rounded-2xl bg-white p-6 shadow-sm">
                 <h3 className="font-display text-lg font-bold text-maroon">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm text-ink/70">{item.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
+      <Reveal className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
         <h2 className="font-display text-3xl font-black uppercase tracking-tight text-ink">
           Probalo vos mismo
         </h2>
@@ -135,7 +145,7 @@ export default function AboutPage() {
         >
           Ir a la tienda
         </Link>
-      </section>
+      </Reveal>
     </div>
   );
 }

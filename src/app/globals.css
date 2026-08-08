@@ -107,3 +107,24 @@ h1, h2, h3, h4, .font-display {
 .animate-word-cycle {
   animation: word-cycle 2.2s ease-in-out;
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-word-cycle {
+    animation: none;
+  }
+}
