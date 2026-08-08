@@ -1,15 +1,9 @@
 import localFont from "next/font/local";
-import { Aldrich } from "next/font/google";
 
-/**
- * TEMPORARY display font. The real Kaliver headline typeface (the blocky,
- * industrial face shown in the brand's hero mockup) isn't in the brand
- * assets folder yet — swap this for a localFont() pointing at the real
- * file the moment it's provided.
- */
-export const displayFont = Aldrich({
-  subsets: ["latin"],
-  weight: "400",
+export const displayFont = localFont({
+  src: [
+    { path: "../../public/fonts/Comrade-Bold.ttf", weight: "700", style: "normal" },
+  ],
   variable: "--font-display",
   display: "swap",
 });
