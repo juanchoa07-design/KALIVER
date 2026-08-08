@@ -1,0 +1,77 @@
+import Image from "next/image";
+
+const ANCESTRAL = ["Carne", "Fuego", "Tierra", "Fuerza", "Tradición", "Supervivencia"];
+const MODERNO = ["Practicidad", "Diseño", "Rendimiento", "Tecnología", "Portabilidad", "Conveniencia"];
+
+export default function TensionSection() {
+  return (
+    <section className="relative overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="relative overflow-hidden bg-carbon px-6 py-16 text-cream-light sm:px-12 lg:py-24">
+          <Image
+            src="/images/texture-2.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-[0.08]"
+          />
+          <div className="relative mx-auto max-w-md lg:ml-auto lg:mr-12">
+            <p className="text-xs font-bold uppercase tracking-widest text-bronze">
+              De donde venimos
+            </p>
+            <h2 className="mt-2 font-display text-4xl uppercase tracking-tight sm:text-5xl">
+              Ancestral
+            </h2>
+            <ul className="mt-6 space-y-2">
+              {ANCESTRAL.map((word) => (
+                <li key={word} className="text-lg text-cream-light/70">
+                  {word}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden bg-cream px-6 py-16 sm:px-12 lg:py-24">
+          <Image
+            src="/images/texture-4.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-[0.10] mix-blend-multiply"
+          />
+          <div className="relative mx-auto max-w-md lg:ml-12 lg:mr-auto">
+            <p className="text-xs font-bold uppercase tracking-widest text-maroon">
+              A donde vamos
+            </p>
+            <h2 className="mt-2 font-display text-4xl uppercase tracking-tight text-ink sm:text-5xl">
+              Moderno
+            </h2>
+            <ul className="mt-6 space-y-2">
+              {MODERNO.map((word) => (
+                <li key={word} className="text-lg text-ink/70">
+                  {word}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-cream-light bg-bronze font-display text-3xl text-carbon shadow-xl lg:flex"
+      >
+        ×
+      </div>
+
+      <div className="border-t border-black/10 bg-cream-light px-4 py-14 text-center sm:px-6">
+        <p className="mx-auto max-w-2xl font-display text-xl uppercase leading-snug tracking-tight text-ink sm:text-2xl">
+          &ldquo;Kaliver no pertenece completamente a ninguno de los dos mundos.
+          Su identidad aparece precisamente al combinarlos.&rdquo;
+        </p>
+        <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-maroon">
+          Alimentos ancestrales · Formatos modernos
+        </p>
+      </div>
+    </section>
+  );
+}
