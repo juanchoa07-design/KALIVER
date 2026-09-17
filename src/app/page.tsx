@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import RotatingWord from "@/components/RotatingWord";
+import RotatingText from "@/components/reactbits/RotatingText";
+import Magnet from "@/components/reactbits/Magnet";
+import ScrollVelocity from "@/components/reactbits/ScrollVelocity";
 import PacksSection from "@/components/PacksSection";
 import ValueSection from "@/components/ValueSection";
 import ReelsSection from "@/components/ReelsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 
 const HERO_IMAGE = "/images/hero-pouch-studio.jpg";
+
+const HERO_WORDS = ["auténtica", "ancestral", "animal", "real"];
 
 const MARQUEE_ITEMS = [
   "100% CARNE",
@@ -42,7 +46,8 @@ export default function Home() {
               Charqui de carne vacuna
             </p>
             <h1 className="mt-3 font-condensed text-[clamp(2.4rem,10.5vw,4.75rem)] font-bold uppercase leading-[0.88] text-cream-light lg:text-[clamp(3.5rem,5.2vw,5.25rem)]">
-              Proteína <RotatingWord className="text-cream" />
+              Proteína{" "}
+              <RotatingText texts={HERO_WORDS} className="align-bottom text-cream" />
               <br />
               para la vida real
             </h1>
@@ -50,13 +55,15 @@ export default function Home() {
               Tu snack de carne, listo para llevar.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Link
-                href="/tienda"
-                className="group inline-flex items-center gap-3 rounded-full bg-cream-light px-8 py-3.5 font-condensed text-xl font-bold text-maroon transition hover:bg-white"
-              >
-                Comprar charqui
-                <span aria-hidden className="transition group-hover:translate-x-1">→</span>
-              </Link>
+              <Magnet>
+                <Link
+                  href="/tienda"
+                  className="group inline-flex items-center gap-3 rounded-full bg-cream-light px-8 py-3.5 font-condensed text-xl font-bold text-maroon transition hover:bg-white"
+                >
+                  Comprar charqui
+                  <span aria-hidden className="transition group-hover:translate-x-1">→</span>
+                </Link>
+              </Magnet>
               <Link
                 href="/nosotros"
                 className="border-b border-cream-light/80 pb-0.5 font-condensed text-xl font-semibold text-cream-light transition hover:border-bronze hover:text-bronze"
@@ -71,20 +78,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Marquee — pauses on hover/focus, static with reduced motion */}
-      <div className="marquee overflow-hidden bg-maroon py-3">
-        <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span
-              key={i}
-              aria-hidden={i >= MARQUEE_ITEMS.length}
-              className="font-condensed text-lg font-semibold uppercase tracking-widest text-cream-light"
-            >
-              {item} <span className="text-bronze">&nbsp;•&nbsp;</span>
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Marquee — drifts on its own, speeds up with scroll, pauses on hover */}
+      <ScrollVelocity className="bg-maroon py-3">
+        {MARQUEE_ITEMS.map((item) => (
+          <span
+            key={item}
+            className="font-condensed text-lg font-semibold uppercase tracking-widest text-cream-light"
+          >
+            {item} <span className="text-bronze">&nbsp;•&nbsp;</span>&nbsp;
+          </span>
+        ))}
+      </ScrollVelocity>
 
       <PacksSection />
       <ValueSection />

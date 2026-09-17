@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
+import SpotlightCard from "@/components/reactbits/SpotlightCard";
 
 // Line icons share one stroke so the four read as a set next to each other.
 function Icon({ children }: { children: ReactNode }) {
@@ -99,15 +100,17 @@ export default function ValueSection() {
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           {ATTRIBUTES.map((attr, i) => (
             <Reveal key={attr.title} delay={i * 80} className="h-full">
-              <div className="flex h-full items-start gap-5 rounded-2xl border border-cream-light/10 bg-carbon-light p-6">
-                {attr.icon}
-                <div>
-                  <h3 className="font-condensed text-2xl font-bold uppercase leading-tight text-cream-light">
-                    {attr.title}
-                  </h3>
-                  <p className="mt-1 text-cream-light/70">{attr.text}</p>
+              <SpotlightCard className="h-full rounded-2xl border border-cream-light/10 bg-carbon-light p-6 transition-colors hover:border-bronze/40">
+                <div className="flex items-start gap-5">
+                  {attr.icon}
+                  <div>
+                    <h3 className="font-condensed text-2xl font-bold uppercase leading-tight text-cream-light">
+                      {attr.title}
+                    </h3>
+                    <p className="mt-1 text-cream-light/70">{attr.text}</p>
+                  </div>
                 </div>
-              </div>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>
