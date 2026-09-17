@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RotatingWord from "@/components/RotatingWord";
 import PacksSection from "@/components/PacksSection";
 import ValueSection from "@/components/ValueSection";
 import ReelsSection from "@/components/ReelsSection";
@@ -41,7 +42,7 @@ export default function Home() {
               Charqui de carne vacuna
             </p>
             <h1 className="mt-3 font-condensed text-[clamp(2.4rem,10.5vw,4.75rem)] font-bold uppercase leading-[0.88] text-cream-light lg:text-[clamp(3.5rem,5.2vw,5.25rem)]">
-              Proteína auténtica
+              Proteína <RotatingWord className="text-cream" />
               <br />
               para la vida real
             </h1>

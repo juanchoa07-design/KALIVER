@@ -2,94 +2,91 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart-context";
 
 const NAV_LINKS = [
   { href: "/tienda", label: "Comprar" },
   { href: "/nosotros", label: "Conocé Kaliver" },
-  { href: "/contacto", label: "Contacto" },
 ];
+
+// Underline that grows from the left on hover and stays on the active page.
+const underline =
+  "relative after:absolute after:inset-x-0 after:-bottom-1 after:h-[2px] after:origin-left after:scale-x-0 after:bg-maroon after:transition-transform after:duration-300 hover:after:scale-x-100";
 
 export default function Header() {
   const { totalItems, openCart } = useCart();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    const frame = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-cream-light/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
+    <header
+      className={`sticky top-0 z-40 bg-cream-light/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_8px_24px_-12px_rgba(23,18,15,0.25)]" : ""
+      }`}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
+        <Link href="/" className="shrink-0" aria-label="Kaliver, inicio">
           <Image
             src="/images/logo-wordmark-maroon-cropped.png"
             alt="Kaliver"
             width={1005}
             height={364}
-            className="h-8 w-auto sm:h-9"
+            className="h-7 w-auto transition-opacity hover:opacity-80 sm:h-10"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-condensed text-lg font-semibold text-ink transition hover:text-maroon"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <nav className="flex items-center gap-5 sm:gap-10">
+          {NAV_LINKS.map((link) => {
+            const active = pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`${underline} font-condensed text-base font-semibold tracking-wide transition-colors sm:text-xl ${
+                  active ? "text-maroon after:scale-x-100" : "text-ink hover:text-maroon"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
 
-        <div className="flex items-center gap-3">
           <button
+            type="button"
             onClick={openCart}
-            className="relative flex items-center gap-2 rounded-full border border-ink/15 px-3 py-2 text-sm font-medium transition hover:border-maroon hover:text-maroon"
-            aria-label="Abrir carrito"
+            aria-label={`Abrir carrito (${totalItems} ${totalItems === 1 ? "producto" : "productos"})`}
+            className={`${underline} group flex items-center gap-2 font-condensed text-base font-semibold tracking-wide text-ink transition-colors hover:text-maroon sm:text-xl`}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="9" cy="21" r="1" />
-              <circle cx="20" cy="21" r="1" />
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-            </svg>
-            <span className="hidden font-condensed text-base font-semibold sm:inline">Carrito ({totalItems})</span>
-            {totalItems > 0 && (
-              <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 sm:hidden items-center justify-center rounded-full bg-maroon text-[11px] font-bold text-cream-light">
-                {totalItems}
-              </span>
-            )}
-          </button>
-
-          <button
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 md:hidden"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Abrir menú"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {menuOpen ? (
-                <path d="M18 6 6 18M6 6l12 12" />
-              ) : (
-                <path d="M3 12h18M3 6h18M3 18h18" />
+            <span className="relative">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M2 3h3l2.4 11.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L22 7H6" />
+                <circle cx="10" cy="20" r="1.3" />
+                <circle cx="18" cy="20" r="1.3" />
+              </svg>
+              {totalItems > 0 && (
+                <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-maroon px-1 font-text text-[10px] font-bold text-cream-light sm:hidden">
+                  {totalItems}
+                </span>
               )}
-            </svg>
+            </span>
+            <span className="hidden sm:inline">Carrito ({totalItems})</span>
           </button>
-        </div>
-      </div>
-
-      {menuOpen && (
-        <nav className="flex flex-col gap-1 border-t border-black/10 bg-cream-light px-4 py-3 md:hidden">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-md px-2 py-2 font-condensed text-lg font-semibold text-ink hover:bg-black/5"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
         </nav>
-      )}
+      </div>
     </header>
   );
 }

@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-const WORDS = ["real", "ancestral", "funcional", "auténtica"];
+const WORDS = ["auténtica", "ancestral", "animal", "real"];
 
-export default function RotatingWord() {
+export default function RotatingWord({ className = "text-bronze" }: { className?: string }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function RotatingWord() {
   }, []);
 
   return (
-    <span className="inline-grid text-bronze">
+    <span className={`inline-grid ${className}`}>
       <span
         key={index}
         className="col-start-1 row-start-1 animate-word-cycle"
