@@ -5,6 +5,8 @@ import ValueSection from "@/components/ValueSection";
 import ReelsSection from "@/components/ReelsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 
+const HERO_IMAGE = "/images/hero-pouch-studio.jpg";
+
 const MARQUEE_ITEMS = [
   "100% CARNE",
   "SIN AZÚCARES AGREGADOS",
@@ -15,55 +17,56 @@ const MARQUEE_ITEMS = [
 export default function Home() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-cream-light">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-40 top-1/2 h-[42rem] w-[42rem] -translate-y-1/2 rounded-full bg-cream/70 blur-3xl"
-        />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 px-4 pb-10 pt-6 sm:px-6 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[1.25fr_1fr] lg:gap-10 lg:px-8 lg:py-12">
-          <div className="relative mx-auto h-[36svh] w-full max-w-md lg:order-last lg:h-[72svh] lg:max-w-none">
-            <Image
-              src="/images/pouch-sal-cutout.png"
-              alt="Pouch de Charqui Kaliver vacuno con sal, 30 g de proteína"
-              fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain drop-shadow-[0_30px_40px_rgba(23,18,15,0.35)]"
-            />
-          </div>
+      {/* Hero — full-bleed scene photo, copy over the dark left side.
+          To use a lifestyle photo, swap HERO_IMAGE; keep the product on the
+          right half so the gradient never covers the label. */}
+      <section className="relative isolate overflow-hidden bg-carbon text-cream-light">
+        <div className="relative h-[46svh] w-full lg:absolute lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[62%]">
+          <Image
+            src={HERO_IMAGE}
+            alt="Pouch de Charqui Kaliver vacuno con sal, 30 g de proteína"
+            fill
+            priority
+            sizes="(min-width: 1024px) 62vw, 100vw"
+            className="object-cover object-center"
+          />
+          {/* Blend the photo into the solid background behind the copy */}
+          <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent lg:bg-gradient-to-r lg:from-carbon lg:via-carbon/20" />
+          <div className="absolute inset-0 hidden bg-gradient-to-t from-carbon/60 via-transparent to-transparent lg:block" />
+        </div>
 
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-ink sm:text-sm">
+        <div className="relative mx-auto flex max-w-7xl flex-col justify-center px-4 pb-12 sm:px-6 lg:min-h-[calc(100svh-4rem)] lg:px-8 lg:py-16">
+          <div className="-mt-10 lg:mt-0 lg:max-w-[54%]">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cream-light/85 sm:text-sm">
               Charqui de carne vacuna
             </p>
-            <h1 className="mt-3 font-condensed text-[clamp(2.25rem,10vw,4.5rem)] font-bold uppercase leading-[0.9] text-maroon lg:text-[clamp(3.5rem,5.6vw,5.25rem)]">
+            <h1 className="mt-3 font-condensed text-[clamp(2.4rem,10.5vw,4.75rem)] font-bold uppercase leading-[0.88] text-cream-light lg:text-[clamp(3.5rem,5.2vw,5.25rem)]">
               Proteína auténtica
               <br />
               para la vida real
             </h1>
-            <p className="mt-4 text-lg text-ink sm:text-xl">
+            <p className="mt-4 text-lg text-cream-light/90 sm:text-2xl">
               Tu snack de carne, listo para llevar.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
                 href="/tienda"
-                className="group inline-flex items-center gap-3 rounded-full bg-maroon px-8 py-3.5 font-condensed text-xl font-semibold text-cream-light transition hover:bg-maroon-dark"
+                className="group inline-flex items-center gap-3 rounded-full bg-cream-light px-8 py-3.5 font-condensed text-xl font-bold text-maroon transition hover:bg-white"
               >
                 Comprar charqui
                 <span aria-hidden className="transition group-hover:translate-x-1">→</span>
               </Link>
               <Link
                 href="/nosotros"
-                className="border-b border-ink pb-0.5 font-condensed text-xl font-semibold text-ink transition hover:border-maroon hover:text-maroon"
+                className="border-b border-cream-light/80 pb-0.5 font-condensed text-xl font-semibold text-cream-light transition hover:border-bronze hover:text-bronze"
               >
                 Conocé Kaliver
               </Link>
             </div>
-            <p className="mt-10 text-xs font-semibold uppercase tracking-[0.3em] text-ink/70 lg:mt-16">
-              Origen animal · Listo para llevar
-            </p>
           </div>
+          <p className="mt-10 text-[11px] font-semibold uppercase tracking-[0.25em] text-cream-light/70 sm:text-xs sm:tracking-[0.35em] lg:absolute lg:bottom-10 lg:mt-0">
+            Origen animal · Listo para llevar
+          </p>
         </div>
       </section>
 
