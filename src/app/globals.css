@@ -66,6 +66,7 @@
 
   --font-display: "Comrade", Arial, Helvetica, sans-serif;
   --font-text: var(--font-text);
+  --font-condensed: var(--font-condensed), "Arial Narrow", Arial, sans-serif;
 }
 
 body {
@@ -74,7 +75,14 @@ body {
   font-family: var(--font-text), Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, .font-display {
+/* In the base layer so utilities like `font-condensed` can override it on a
+   heading — unlayered rules would beat every Tailwind utility. */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Arial, Helvetica, sans-serif;
+  }
+}
+.font-display {
   font-family: var(--font-display), Arial, Helvetica, sans-serif;
 }
 
@@ -95,7 +103,19 @@ h1, h2, h3, h4, .font-display {
   to { transform: translateX(-50%); }
 }
 .animate-marquee {
-  animation: marquee 22s linear infinite;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .animate-marquee,
+.marquee:focus-within .animate-marquee,
+.marquee[data-paused="true"] .animate-marquee {
+  animation-play-state: paused;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes word-cycle {
@@ -124,7 +144,8 @@ h1, h2, h3, h4, .font-display {
     transform: none;
     transition: none;
   }
-  .animate-word-cycle {
+  .animate-word-cycle,
+  .animate-marquee {
     animation: none;
   }
 }

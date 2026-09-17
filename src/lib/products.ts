@@ -121,3 +121,84 @@ export const bundles = [
     image: "/images/product-sal-hero.png",
   },
 ];
+
+/*
+ * Formatos de compra de la home. Unidades, reparto charqui/chips, sabores del
+ * mix estándar y precio todavía no están definidos: quedan en null y la
+ * tarjeta muestra "A definir" y deshabilita "Agregar al carrito". Cuando se
+ * confirmen, se completan acá y la tarjeta se activa sola.
+ */
+export type Pack = {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  units: number | null;
+  charquiUnits: number | null;
+  chipsUnits: number | null;
+  flavors: string[] | null;
+  price: number | null;
+};
+
+export const packs: Pack[] = [
+  {
+    slug: "degustacion",
+    name: "Pack Degustación",
+    description: "Conocé Kaliver con una selección de charqui y chips.",
+    image: "/images/product-sal.jpg",
+    units: null,
+    charquiUnits: null,
+    chipsUnits: null,
+    flavors: null,
+    price: null,
+  },
+  {
+    slug: "semanal",
+    name: "Pack Semanal",
+    description: "Charqui y chips para acompañar tu semana.",
+    image: "/images/product-romero.jpg",
+    units: null,
+    charquiUnits: null,
+    chipsUnits: null,
+    flavors: null,
+    price: null,
+  },
+  {
+    slug: "quincenal",
+    name: "Pack Quincenal",
+    description: "Tu selección de charqui y chips para la quincena.",
+    image: "/images/product-chimichurri.jpg",
+    units: null,
+    charquiUnits: null,
+    chipsUnits: null,
+    flavors: null,
+    price: null,
+  },
+  {
+    slug: "mensual",
+    name: "Pack Mensual",
+    description: "Charqui y chips para tener a mano durante el mes.",
+    image: "/images/product-back-label.jpg",
+    units: null,
+    charquiUnits: null,
+    chipsUnits: null,
+    flavors: null,
+    price: null,
+  },
+];
+
+export function isPackReady(pack: Pack): pack is Pack & {
+  units: number;
+  charquiUnits: number;
+  chipsUnits: number;
+  flavors: string[];
+  price: number;
+} {
+  return (
+    pack.units !== null &&
+    pack.charquiUnits !== null &&
+    pack.chipsUnits !== null &&
+    pack.flavors !== null &&
+    pack.price !== null
+  );
+}

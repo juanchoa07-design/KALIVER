@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-ink text-cream-light">
+    <footer className="bg-ink text-cream-light">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
@@ -30,10 +30,10 @@ export default function Footer() {
               Tienda
             </h3>
             <ul className="mt-4 space-y-2 text-sm text-cream-light/80">
-              <li><Link href="/tienda" className="hover:text-white">Todos los sabores</Link></li>
+              <li><Link href="/tienda" className="hover:text-white">Comprar charqui</Link></li>
               <li><Link href="/tienda#pack-degustacion" className="hover:text-white">Pack degustación</Link></li>
-              <li><Link href="/nosotros" className="hover:text-white">Nuestra historia</Link></li>
-              <li><Link href="/#nutricion" className="hover:text-white">Información nutricional</Link></li>
+              <li><Link href="/nosotros" className="hover:text-white">Conocé Kaliver</Link></li>
+              <li><Link href="/tienda" className="hover:text-white">Información de productos</Link></li>
             </ul>
           </div>
 

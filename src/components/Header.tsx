@@ -6,9 +6,8 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 
 const NAV_LINKS = [
-  { href: "/tienda", label: "Tienda" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/#nutricion", label: "Nutrición" },
+  { href: "/tienda", label: "Comprar" },
+  { href: "/nosotros", label: "Conocé Kaliver" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -19,18 +18,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-cream-light/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 shrink-0" onClick={() => setMenuOpen(false)}>
+        <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
           <Image
-            src="/images/logo-mark-maroon.png"
+            src="/images/logo-wordmark-maroon-cropped.png"
             alt="Kaliver"
-            width={36}
-            height={36}
-            className="h-9 w-9 object-contain"
+            width={1005}
+            height={364}
+            className="h-8 w-auto sm:h-9"
             priority
           />
-          <span className="font-display text-xl font-black tracking-tight text-maroon">
-            KALIVER
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -38,7 +34,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium uppercase tracking-wide text-ink/80 transition hover:text-maroon"
+              className="font-condensed text-lg font-semibold text-ink transition hover:text-maroon"
             >
               {link.label}
             </Link>
@@ -56,9 +52,9 @@ export default function Header() {
               <circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
-            <span className="hidden sm:inline">Carrito</span>
+            <span className="hidden font-condensed text-base font-semibold sm:inline">Carrito ({totalItems})</span>
             {totalItems > 0 && (
-              <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-maroon text-[11px] font-bold text-cream-light">
+              <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 sm:hidden items-center justify-center rounded-full bg-maroon text-[11px] font-bold text-cream-light">
                 {totalItems}
               </span>
             )}
@@ -86,7 +82,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-2 py-2 text-sm font-medium uppercase tracking-wide text-ink/80 hover:bg-black/5"
+              className="rounded-md px-2 py-2 font-condensed text-lg font-semibold text-ink hover:bg-black/5"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
